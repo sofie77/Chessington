@@ -16,7 +16,7 @@ namespace Chessington.GameEngine.Pieces
 
 
             Square newPosition;
-            
+
 
             // find current location
 
@@ -25,19 +25,61 @@ namespace Chessington.GameEngine.Pieces
 
             if (Player == Player.White)
             {
+                if (firstMove == true)
                
-                //find square one up from it (which is 1 less in y co-ordinate
-                newPosition = Square.At(currentPosition.Row - 1, currentPosition.Col);
-                //put that square in a list
-                availableSquares.Add(newPosition);
+                {   
+                    //move 2
+                     //find square 2 up from it (which is 1 less in y co-ordinate
+                    newPosition = Square.At(currentPosition.Row - 1, currentPosition.Col);
+                    //put that square in a list
+                    availableSquares.Add(newPosition);
+
+                    //move 1
+                    //find square one up from it (which is 1 less in y co-ordinate
+                    newPosition = Square.At(currentPosition.Row - 2, currentPosition.Col);
+                     //put that square in a list
+                    availableSquares.Add(newPosition);
+                    firstMove = false;
+        
+
+                }
+                else
+                {
+                    //move 1
+                    //find square one up from it (which is 1 less in y co-ordinate
+                    newPosition = Square.At(currentPosition.Row - 1, currentPosition.Col);
+                    //put that square in a list
+                    availableSquares.Add(newPosition);
+                }
+
 
             }
             else
+        
             {
-                //find square one up from it (which is 1 less in y co-ordinate
-                newPosition = Square.At(currentPosition.Row + 1, currentPosition.Col);
-                //put that square in a list
-                availableSquares.Add(newPosition);
+                if (firstMove == true)
+                {
+                    //find square one up from it (which is 1 less in y co-ordinate
+                    newPosition = Square.At(currentPosition.Row + 1, currentPosition.Col);
+                    //put that square in a list
+                    availableSquares.Add(newPosition);
+
+                    //find square one up from it (which is 1 less in y co-ordinate
+                    newPosition = Square.At(currentPosition.Row + 2, currentPosition.Col);
+                    //put that square in a list
+                    availableSquares.Add(newPosition);
+                    firstMove = false;
+
+
+                }
+                else
+                {
+                    //find square one up from it (which is 1 less in y co-ordinate
+                    newPosition = Square.At(currentPosition.Row + 1, currentPosition.Col);
+                    //put that square in a list
+                    availableSquares.Add(newPosition);
+                
+                }
 
 
             }
